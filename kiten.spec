@@ -5,24 +5,24 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kiten
-Version  : 18.08.0
-Release  : 1
-URL      : https://download.kde.org/stable/applications/18.08.0/src/kiten-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/kiten-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/kiten-18.08.0.tar.xz.sig
+Version  : 18.12.2
+Release  : 2
+URL      : https://download.kde.org/stable/applications/18.12.2/src/kiten-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/kiten-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/kiten-18.12.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.0
-Requires: kiten-bin
-Requires: kiten-lib
-Requires: kiten-data
-Requires: kiten-license
-Requires: kiten-locales
+Requires: kiten-bin = %{version}-%{release}
+Requires: kiten-data = %{version}-%{release}
+Requires: kiten-lib = %{version}-%{release}
+Requires: kiten-license = %{version}-%{release}
+Requires: kiten-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : khtml-dev
 BuildRequires : kjs-dev
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 
 %description
 ****************************************
@@ -33,8 +33,8 @@ BuildRequires : qtbase-dev qtbase-extras mesa-dev
 %package bin
 Summary: bin components for the kiten package.
 Group: Binaries
-Requires: kiten-data
-Requires: kiten-license
+Requires: kiten-data = %{version}-%{release}
+Requires: kiten-license = %{version}-%{release}
 
 %description bin
 bin components for the kiten package.
@@ -51,10 +51,10 @@ data components for the kiten package.
 %package dev
 Summary: dev components for the kiten package.
 Group: Development
-Requires: kiten-lib
-Requires: kiten-bin
-Requires: kiten-data
-Provides: kiten-devel
+Requires: kiten-lib = %{version}-%{release}
+Requires: kiten-bin = %{version}-%{release}
+Requires: kiten-data = %{version}-%{release}
+Provides: kiten-devel = %{version}-%{release}
 
 %description dev
 dev components for the kiten package.
@@ -71,8 +71,8 @@ doc components for the kiten package.
 %package lib
 Summary: lib components for the kiten package.
 Group: Libraries
-Requires: kiten-data
-Requires: kiten-license
+Requires: kiten-data = %{version}-%{release}
+Requires: kiten-license = %{version}-%{release}
 
 %description lib
 lib components for the kiten package.
@@ -95,28 +95,28 @@ locales components for the kiten package.
 
 
 %prep
-%setup -q -n kiten-18.08.0
+%setup -q -n kiten-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535198532
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549868815
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535198532
+export SOURCE_DATE_EPOCH=1549868815
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/kiten
-cp COPYING %{buildroot}/usr/share/doc/kiten/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/doc/kiten/COPYING.DOC
-cp COPYING.LIB %{buildroot}/usr/share/doc/kiten/COPYING.LIB
-cp data/font/copyright.txt %{buildroot}/usr/share/doc/kiten/data_font_copyright.txt
+mkdir -p %{buildroot}/usr/share/package-licenses/kiten
+cp COPYING %{buildroot}/usr/share/package-licenses/kiten/COPYING
+cp COPYING.DOC %{buildroot}/usr/share/package-licenses/kiten/COPYING.DOC
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kiten/COPYING.LIB
+cp data/font/copyright.txt %{buildroot}/usr/share/package-licenses/kiten/data_font_copyright.txt
 pushd clr-build
 %make_install
 popd
@@ -169,28 +169,12 @@ popd
 /usr/include/libkiten/entrylist.h
 /usr/include/libkiten/historyptrlist.h
 /usr/include/libkiten/kromajiedit.h
-/usr/include/libkiten/libkitenexport.h
 /usr/lib64/libkiten.so
 
 %files doc
 %defattr(0644,root,root,0755)
-%doc /usr/share/doc/kiten/*
-/usr/share/doc/HTML/ca/kiten/common_uncommon_filtering.png
-/usr/share/doc/HTML/ca/kiten/ending_search.png
-/usr/share/doc/HTML/ca/kiten/font.png
-/usr/share/doc/HTML/ca/kiten/grade_search.png
 /usr/share/doc/HTML/ca/kiten/index.cache.bz2
 /usr/share/doc/HTML/ca/kiten/index.docbook
-/usr/share/doc/HTML/ca/kiten/introduction.png
-/usr/share/doc/HTML/ca/kiten/kanji_information.png
-/usr/share/doc/HTML/ca/kiten/kanji_list.png
-/usr/share/doc/HTML/ca/kiten/looking_up_words.png
-/usr/share/doc/HTML/ca/kiten/radical_selector.png
-/usr/share/doc/HTML/ca/kiten/search_in_results.png
-/usr/share/doc/HTML/ca/kiten/stroke_search.png
-/usr/share/doc/HTML/ca/kiten/verb_deinflection.png
-/usr/share/doc/HTML/ca/kiten/with_filtering.png
-/usr/share/doc/HTML/ca/kiten/word_type_results.png
 /usr/share/doc/HTML/de/kiten/index.cache.bz2
 /usr/share/doc/HTML/de/kiten/index.docbook
 /usr/share/doc/HTML/de/kiten/kiten1.png
@@ -250,10 +234,11 @@ popd
 /usr/lib64/libkiten.so.5.0.0
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/kiten/COPYING
-/usr/share/doc/kiten/COPYING.DOC
-/usr/share/doc/kiten/COPYING.LIB
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/kiten/COPYING
+/usr/share/package-licenses/kiten/COPYING.DOC
+/usr/share/package-licenses/kiten/COPYING.LIB
+/usr/share/package-licenses/kiten/data_font_copyright.txt
 
 %files locales -f kiten.lang
 %defattr(-,root,root,-)
