@@ -6,7 +6,7 @@
 #
 Name     : kiten
 Version  : 19.04.1
-Release  : 8
+Release  : 9
 URL      : https://download.kde.org/stable/applications/19.04.1/src/kiten-19.04.1.tar.xz
 Source0  : https://download.kde.org/stable/applications/19.04.1/src/kiten-19.04.1.tar.xz
 Source99 : https://download.kde.org/stable/applications/19.04.1/src/kiten-19.04.1.tar.xz.sig
@@ -104,7 +104,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557445920
+export SOURCE_DATE_EPOCH=1557446148
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -119,7 +119,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557445920
+export SOURCE_DATE_EPOCH=1557446148
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kiten
 cp COPYING %{buildroot}/usr/share/package-licenses/kiten/COPYING
