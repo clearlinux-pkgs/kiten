@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kiten
-Version  : 19.12.3
-Release  : 19
-URL      : https://download.kde.org/stable/release-service/19.12.3/src/kiten-19.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/19.12.3/src/kiten-19.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/19.12.3/src/kiten-19.12.3.tar.xz.sig
+Version  : 20.04.0
+Release  : 20
+URL      : https://download.kde.org/stable/release-service/20.04.0/src/kiten-20.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.0/src/kiten-20.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.0/src/kiten-20.04.0.tar.xz.sig
 Summary  : Japanese Reference/Study Tool
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0
@@ -20,8 +20,6 @@ Requires: kiten-license = %{version}-%{release}
 Requires: kiten-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : khtml-dev
-BuildRequires : kjs-dev
 BuildRequires : qtbase-dev mesa-dev
 
 %description
@@ -97,15 +95,15 @@ locales components for the kiten package.
 
 
 %prep
-%setup -q -n kiten-19.12.3
-cd %{_builddir}/kiten-19.12.3
+%setup -q -n kiten-20.04.0
+cd %{_builddir}/kiten-20.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583448205
+export SOURCE_DATE_EPOCH=1587686824
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -122,13 +120,13 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1583448205
+export SOURCE_DATE_EPOCH=1587686824
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kiten
-cp %{_builddir}/kiten-19.12.3/COPYING %{buildroot}/usr/share/package-licenses/kiten/b17021ddf3069644265ecd0db9641bb11ce73e66
-cp %{_builddir}/kiten-19.12.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/kiten/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/kiten-19.12.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/kiten/c08668a6ace9b36ba46940609040748161b03a37
-cp %{_builddir}/kiten-19.12.3/data/font/copyright.txt %{buildroot}/usr/share/package-licenses/kiten/e7547262e8641ad3ee1baf95d91546da82b6b47b
+cp %{_builddir}/kiten-20.04.0/COPYING %{buildroot}/usr/share/package-licenses/kiten/b17021ddf3069644265ecd0db9641bb11ce73e66
+cp %{_builddir}/kiten-20.04.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kiten/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/kiten-20.04.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kiten/c08668a6ace9b36ba46940609040748161b03a37
+cp %{_builddir}/kiten-20.04.0/data/font/copyright.txt %{buildroot}/usr/share/package-licenses/kiten/e7547262e8641ad3ee1baf95d91546da82b6b47b
 pushd clr-build
 %make_install
 popd
