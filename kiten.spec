@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kiten
-Version  : 20.04.0
-Release  : 20
-URL      : https://download.kde.org/stable/release-service/20.04.0/src/kiten-20.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.0/src/kiten-20.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.0/src/kiten-20.04.0.tar.xz.sig
-Summary  : Japanese Reference/Study Tool
+Version  : 20.04.1
+Release  : 21
+URL      : https://download.kde.org/stable/release-service/20.04.1/src/kiten-20.04.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.1/src/kiten-20.04.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.1/src/kiten-20.04.1.tar.xz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0
 Requires: kiten-bin = %{version}-%{release}
@@ -20,6 +20,7 @@ Requires: kiten-license = %{version}-%{release}
 Requires: kiten-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : extra-cmake-modules-data
 BuildRequires : qtbase-dev mesa-dev
 
 %description
@@ -53,7 +54,6 @@ Requires: kiten-lib = %{version}-%{release}
 Requires: kiten-bin = %{version}-%{release}
 Requires: kiten-data = %{version}-%{release}
 Provides: kiten-devel = %{version}-%{release}
-Requires: kiten = %{version}-%{release}
 Requires: kiten = %{version}-%{release}
 
 %description dev
@@ -95,38 +95,37 @@ locales components for the kiten package.
 
 
 %prep
-%setup -q -n kiten-20.04.0
-cd %{_builddir}/kiten-20.04.0
+%setup -q -n kiten-20.04.1
+cd %{_builddir}/kiten-20.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1587686824
+export SOURCE_DATE_EPOCH=1589845563
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1587686824
+export SOURCE_DATE_EPOCH=1589845563
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kiten
-cp %{_builddir}/kiten-20.04.0/COPYING %{buildroot}/usr/share/package-licenses/kiten/b17021ddf3069644265ecd0db9641bb11ce73e66
-cp %{_builddir}/kiten-20.04.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kiten/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/kiten-20.04.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kiten/c08668a6ace9b36ba46940609040748161b03a37
-cp %{_builddir}/kiten-20.04.0/data/font/copyright.txt %{buildroot}/usr/share/package-licenses/kiten/e7547262e8641ad3ee1baf95d91546da82b6b47b
+cp %{_builddir}/kiten-20.04.1/COPYING %{buildroot}/usr/share/package-licenses/kiten/b17021ddf3069644265ecd0db9641bb11ce73e66
+cp %{_builddir}/kiten-20.04.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/kiten/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/kiten-20.04.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/kiten/c08668a6ace9b36ba46940609040748161b03a37
+cp %{_builddir}/kiten-20.04.1/data/font/copyright.txt %{buildroot}/usr/share/package-licenses/kiten/e7547262e8641ad3ee1baf95d91546da82b6b47b
 pushd clr-build
 %make_install
 popd
