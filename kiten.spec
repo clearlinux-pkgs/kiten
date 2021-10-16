@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kiten
-Version  : 21.08.1
-Release  : 32
-URL      : https://download.kde.org/stable/release-service/21.08.1/src/kiten-21.08.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.08.1/src/kiten-21.08.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.08.1/src/kiten-21.08.1.tar.xz.sig
+Version  : 21.08.2
+Release  : 33
+URL      : https://download.kde.org/stable/release-service/21.08.2/src/kiten-21.08.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.08.2/src/kiten-21.08.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.08.2/src/kiten-21.08.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-1.0 GPL-2.0 LGPL-2.0
@@ -95,15 +95,15 @@ locales components for the kiten package.
 
 
 %prep
-%setup -q -n kiten-21.08.1
-cd %{_builddir}/kiten-21.08.1
+%setup -q -n kiten-21.08.2
+cd %{_builddir}/kiten-21.08.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1630954138
+export SOURCE_DATE_EPOCH=1634358765
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -119,15 +119,15 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1630954138
+export SOURCE_DATE_EPOCH=1634358765
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kiten
-cp %{_builddir}/kiten-21.08.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/kiten/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/kiten-21.08.1/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kiten/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/kiten-21.08.1/LICENSES/GPL-1.0-or-later.txt %{buildroot}/usr/share/package-licenses/kiten/e154343fcf8229d714c82906b31df9822fd08ebf
-cp %{_builddir}/kiten-21.08.1/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kiten/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/kiten-21.08.1/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kiten/a4c60b3fefda228cd7439d3565df043192fef137
-cp %{_builddir}/kiten-21.08.1/data/font/KanjiStrokeOrders.ttf.license %{buildroot}/usr/share/package-licenses/kiten/4fe1019be678bc440c6c4a703d34fd4dd77bfd56
+cp %{_builddir}/kiten-21.08.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/kiten/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/kiten-21.08.2/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kiten/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/kiten-21.08.2/LICENSES/GPL-1.0-or-later.txt %{buildroot}/usr/share/package-licenses/kiten/e154343fcf8229d714c82906b31df9822fd08ebf
+cp %{_builddir}/kiten-21.08.2/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kiten/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/kiten-21.08.2/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kiten/a4c60b3fefda228cd7439d3565df043192fef137
+cp %{_builddir}/kiten-21.08.2/data/font/KanjiStrokeOrders.ttf.license %{buildroot}/usr/share/package-licenses/kiten/4fe1019be678bc440c6c4a703d34fd4dd77bfd56
 pushd clr-build
 %make_install
 popd
