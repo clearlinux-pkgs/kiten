@@ -7,7 +7,7 @@
 #
 Name     : kiten
 Version  : 23.04.1
-Release  : 54
+Release  : 55
 URL      : https://download.kde.org/stable/release-service/23.04.1/src/kiten-23.04.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/23.04.1/src/kiten-23.04.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/23.04.1/src/kiten-23.04.1.tar.xz.sig
@@ -107,7 +107,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684798031
+export SOURCE_DATE_EPOCH=1685583291
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -140,7 +140,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1684798031
+export SOURCE_DATE_EPOCH=1685583291
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kiten
 cp %{_builddir}/kiten-%{version}/COPYING.DOC %{buildroot}/usr/share/package-licenses/kiten/1bd373e4851a93027ba70064bd7dbdc6827147e1 || :
@@ -198,7 +198,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libkiten.so
 /usr/include/libkiten/DictEdict/dictfileedict.h
 /usr/include/libkiten/DictEdict/entryedict.h
 /usr/include/libkiten/DictKanjidic/dictfilekanjidic.h
@@ -275,7 +274,6 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libkiten.so.5
 /V3/usr/lib64/libkiten.so.5.0.0
 /usr/lib64/libkiten.so.5
 /usr/lib64/libkiten.so.5.0.0
