@@ -48,9 +48,6 @@ libkiten.so.5:_ZN16DictFileKanjidic19validDictionaryFileERK7QString
 libkiten.so.5:_ZN16DictFileKanjidic8doSearchERK9DictQuery
 libkiten.so.5:_ZN16DictFileKanjidicC1Ev
 libkiten.so.5:_ZN16DictFileKanjidicC2Ev
-libkiten.so.5:_ZN16DictFileKanjidicD0Ev
-libkiten.so.5:_ZN16DictFileKanjidicD1Ev
-libkiten.so.5:_ZN16DictFileKanjidicD2Ev
 libkiten.so.5:_ZN17DictionaryManager12loadSettingsERK7KConfig
 libkiten.so.5:_ZN17DictionaryManager12makeDictFileERK7QString
 libkiten.so.5:_ZN17DictionaryManager13addDictionaryERK7QStringS2_S2_
@@ -70,9 +67,6 @@ libkiten.so.5:_ZN26DictionaryPreferenceDialog11qt_metacastEPKc
 libkiten.so.5:_ZN26DictionaryPreferenceDialog13widgetChangedEv
 libkiten.so.5:_ZN26DictionaryPreferenceDialogC1EP7QWidgetRK7QString
 libkiten.so.5:_ZN26DictionaryPreferenceDialogC2EP7QWidgetRK7QString
-libkiten.so.5:_ZN26DictionaryPreferenceDialogD0Ev
-libkiten.so.5:_ZN26DictionaryPreferenceDialogD1Ev
-libkiten.so.5:_ZN26DictionaryPreferenceDialogD2Ev
 libkiten.so.5:_ZN5Entry4initEv
 libkiten.so.5:_ZN5EntryC1ERK7QString
 libkiten.so.5:_ZN5EntryC1ERK7QStringS2_RK11QStringListS5_
@@ -82,9 +76,6 @@ libkiten.so.5:_ZN5EntryC2ERK7QString
 libkiten.so.5:_ZN5EntryC2ERK7QStringS2_RK11QStringListS5_
 libkiten.so.5:_ZN5EntryC2ERKS_
 libkiten.so.5:_ZN5EntryC2Ev
-libkiten.so.5:_ZN5EntryD0Ev
-libkiten.so.5:_ZN5EntryD1Ev
-libkiten.so.5:_ZN5EntryD2Ev
 libkiten.so.5:_ZN9DictQuery10setMeaningERK7QString
 libkiten.so.5:_ZN9DictQuery11setPropertyERK7QStringS2_
 libkiten.so.5:_ZN9DictQuery12setMatchTypeENS_9MatchTypeE
@@ -216,8 +207,6 @@ libkiten.so.5:_ZNK9EntryList7toKVTMLEjj
 libkiten.so.5:_ZNK9EntryList8getQueryEv
 libkiten.so.5:_ZNK9EntryList8toStringEjj
 libkiten.so.5:_ZNK9EntryList8toStringEv
-libkiten.so.5:_ZThn16_N26DictionaryPreferenceDialogD0Ev
-libkiten.so.5:_ZThn16_N26DictionaryPreferenceDialogD1Ev
 libkiten.so.5:_ZeqRK9DictQueryS1_
 libkiten.so.5:_ZltRK9DictQueryS1_
 libkiten.so.5:_ZneRK9DictQueryS1_
